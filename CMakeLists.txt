@@ -12,7 +12,16 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 include(FetchContent)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} 
+src/main.cpp
+
+src/Graphics/display.cpp
+	include/Application/Graphics/display.h
+src/Graphics/window.cpp
+	include/Application/Graphics/window.h
+src/Graphics/widgets.cpp
+	include/Application/Graphics/widgets.h
+)
 
 find_package(sfml REQUIRED)
 if(SFML_FOUND)
