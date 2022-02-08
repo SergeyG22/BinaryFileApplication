@@ -1,13 +1,20 @@
 #pragma once
 #include "../../tgui-src/include/TGUI/TGUI.hpp"
+#include "../../tgui-src/include/TGUI/Widgets/FileDialog.hpp"
+#include <iostream>
 
 struct Widgets {
-	tgui::Label::Ptr top_label;
-	tgui::Label::Ptr bottom_label;
-	tgui::EditBox::Ptr top_editbox;
-	tgui::EditBox::Ptr bottom_editbox;
-	tgui::Button::Ptr top_button;
-	tgui::Button::Ptr bottom_button;
+	tgui::Label::Ptr label_1;
+	tgui::Label::Ptr label_2;
 	tgui::ListBox::Ptr list_box;
+	tgui::EditBox::Ptr editbox_1;
+	tgui::EditBox::Ptr editbox_2;
+	tgui::Button::Ptr find_button;
+	tgui::FileDialog::Ptr file_dialog_1;
+	tgui::FileDialog::Ptr file_dialog_2;
+	tgui::Button::Ptr button_file_dialog_1;
+	tgui::Button::Ptr button_file_dialog_2;	
+	tgui::FileDialog::Ptr openFileDialogA();
+	tgui::FileDialog::Ptr openFileDialogB();
 	Widgets();
 };

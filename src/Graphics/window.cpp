@@ -2,17 +2,26 @@
 
 Window::Window(){    
 	window.setFramerateLimit(60);
-    graphical_ui.add(widgets.top_label);
-    graphical_ui.add(widgets.bottom_label); 
-    graphical_ui.add(widgets.top_editbox);
-    graphical_ui.add(widgets.bottom_editbox);
-    graphical_ui.add(widgets.top_button);
-    graphical_ui.add(widgets.bottom_button);
+    graphical_ui.add(widgets.label_1);
+    graphical_ui.add(widgets.label_2); 
+    graphical_ui.add(widgets.editbox_1);
+    graphical_ui.add(widgets.editbox_2);
+    graphical_ui.add(widgets.button_file_dialog_1);
+    graphical_ui.add(widgets.button_file_dialog_2);
     graphical_ui.add(widgets.list_box);
+    graphical_ui.add(widgets.find_button);
+
+    widgets.button_file_dialog_1->onPress([&] {
+        graphical_ui.add(widgets.openFileDialogA());
+        });
+
+    widgets.button_file_dialog_2->onPress([&] {
+        graphical_ui.add(widgets.openFileDialogB());
+        });
 }
 
 void Window::execution() {
-
+       
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
