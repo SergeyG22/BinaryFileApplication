@@ -1,23 +1,17 @@
-//#include "../build/_deps/tgui-src/include/TGUI/Backends/SFML.hpp"
-//#include "../build/_deps/tgui-src/include/TGUI/Core.hpp"
-//#include "../build/_deps/tgui-src/include/TGUI/TGUI.hpp"
 #include <boost/iostreams/device/mapped_file.hpp>
-//#include <SFML/Graphics.hpp>
-//#include <iostream>
-
+#include <boost/algorithm/cxx14/equal.hpp>
 #include "../include/Application/Graphics/window.h"
 #include "../include/Application/Graphics/widgets.h"
 #include "../include/Application/Graphics/display.h"
 
-  namespace io = boost::iostreams;
+ 
 
 
-//ÑÄÅËÀÒÜ ÔÀÑÀÄ ÌÅÆÄÓ MAIN È äðóãèìè êîìïîíåíòàìè
 
 
 int main() {
-
       Display* display = new Window();
-      display->execution();
-
+      auto backend = std::unique_ptr<BackendOperations>(new BackendOperations());
+      display->setBackendPointer(std::move(backend));
+      display->execution(); 
 };

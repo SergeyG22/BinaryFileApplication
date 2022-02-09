@@ -30,16 +30,18 @@ Widgets::Widgets() {
 	list_box->setSize(250,240);
 	list_box->setItemHeight(24);
 	list_box->setPosition(125,110);	
+	file_dialog_1 = tgui::FileDialog::create("Open file", "Open");
 }
 
 tgui::FileDialog::Ptr Widgets::openFileDialogA() {
 	file_dialog_1 = tgui::FileDialog::create("Open file", "Open");
 	file_dialog_1->setSelectingDirectory(true);
 	
-	file_dialog_1->onFileSelect([&] {
-		std::cout << file_dialog_1->getPath().asString() << '\n';
+	file_dialog_1->onClose([&] {
 		tgui::String path = file_dialog_1->getPath().asString();
-		editbox_1->setText(path);
+		if (!file_dialog_1->getSelectedPaths().empty()) {
+			editbox_1->setText(path);
+		}
 		});
 
 	return file_dialog_1;
@@ -50,10 +52,11 @@ tgui::FileDialog::Ptr Widgets::openFileDialogB() {
 	file_dialog_2 = tgui::FileDialog::create("Open file", "Open");
 	file_dialog_2->setSelectingDirectory(true);
 
-	file_dialog_2->onFileSelect([&] {
-		std::cout << file_dialog_2->getPath().asString() << '\n';
+	file_dialog_2->onClose([&] {
 		tgui::String path = file_dialog_2->getPath().asString();
-		editbox_2->setText(path);
+		if (!file_dialog_2->getSelectedPaths().empty()) {
+			editbox_2->setText(path);
+		}
 		});
 
 	return file_dialog_2;
@@ -61,11 +64,3 @@ tgui::FileDialog::Ptr Widgets::openFileDialogB() {
 
 
 
-
-//	auto signal = dialog_a->getSignal("onClose");
-
-//	dialog_a->onClosing([&] {
-//		std::cout << dialog_a->getPath().asString() << '\n';
-//		tgui::String path = dialog_a->getPath().asString();
-//		top_editbox->setText(path);
-//		});

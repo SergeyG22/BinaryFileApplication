@@ -21,6 +21,8 @@ src/Graphics/window.cpp
 	include/Application/Graphics/window.h
 src/Graphics/widgets.cpp
 	include/Application/Graphics/widgets.h
+src/Backend/backend_operations.cpp
+	include/Application/Backend/backend_operations.h
 )
 
 find_package(sfml REQUIRED)

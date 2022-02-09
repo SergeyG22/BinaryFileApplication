@@ -18,6 +18,10 @@ Window::Window(){
     widgets.button_file_dialog_2->onPress([&] {
         graphical_ui.add(widgets.openFileDialogB());
         });
+
+    widgets.find_button->onPress([&] {
+        backend_ptr->binaryFindOperation(widgets);
+        });
 }
 
 void Window::execution() {
@@ -35,5 +39,9 @@ void Window::execution() {
         graphical_ui.draw();
         window.display();
     }
+}
+
+void Window::setBackendPointer(std::unique_ptr<BackendOperations>ptr) {
+    backend_ptr = std::move(ptr);
 }
 
