@@ -4,10 +4,9 @@
 #include <boost/filesystem.hpp>
 #include "../Graphics/widgets.h"
 
-
 class BackendOperations {
 
-public:						 
+public:
 	void binaryFindOperation(Widgets&);
 	BackendOperations() = default;
 	~BackendOperations() = default;
