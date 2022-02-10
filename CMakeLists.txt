@@ -4,15 +4,26 @@ set(PROJECT_NAME application)
 project(${PROJECT_NAME})
 
 set(BUILD_SHARED_LIBS OFF)
-
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD 17)
+
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
 
 include(FetchContent)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME} 
+src/main.cpp
+
+src/Graphics/display.cpp
+	include/Application/Graphics/display.h
+src/Graphics/window.cpp
+	include/Application/Graphics/window.h
+src/Graphics/widgets.cpp
+	include/Application/Graphics/widgets.h
+src/Backend/backend_operations.cpp
+	include/Application/Backend/backend_operations.h
+src/Facades/user_interface.cpp
+	include/Application/Facades/user_interface.h
+)
 
 find_package(sfml REQUIRED)
 if(SFML_FOUND)
