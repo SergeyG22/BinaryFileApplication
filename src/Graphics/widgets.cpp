@@ -3,39 +3,53 @@
 
 Widgets::Widgets() {
     topLabel = tgui::Label::create();
-	topLabel->setText("Working directory:");
-	topLabel->setPosition(400,25);
+	topLabel->setText("Directory A");
+	topLabel->setPosition(425,30);
+	topLabel->setTextSize(18);
 	bottomLabel = tgui::Label::create();
-	bottomLabel->setText("Working directory:");
-	bottomLabel->setPosition(400,60);
+	bottomLabel->setText("Directory B");
+	bottomLabel->setPosition(425,65);
+	bottomLabel->setTextSize(18);
 	topEditbox = tgui::EditBox::create();
-	topEditbox->setSize(350,20);
+	topEditbox->setSize(350,30);
 	topEditbox->setPosition(25,25);
 	bottomEditbox = tgui::EditBox::create();
-	bottomEditbox->setSize(350,20);
-	bottomEditbox->setPosition(25,60);
+	bottomEditbox->setSize(350,30);
+	bottomEditbox->setPosition(25,65);
 	topButtonFileDialog = tgui::Button::create();
 	topButtonFileDialog->setText("Browse");
-	topButtonFileDialog->setPosition(415,135);
-	topButtonFileDialog->setSize(85,25);
+	topButtonFileDialog->setPosition(420,135);
+	topButtonFileDialog->setSize(135,35);
+	topButtonFileDialog->setTextSize(20);
 	bottomButtonFileDialog = tgui::Button::create();
 	bottomButtonFileDialog->setText("Browse");
-	bottomButtonFileDialog->setPosition(415,170);
-	bottomButtonFileDialog->setSize(85,25);
+	bottomButtonFileDialog->setPosition(420,185);
+	bottomButtonFileDialog->setSize(135,35);
+	bottomButtonFileDialog->setTextSize(20);
 	buttonClearOutputWindow = tgui::Button::create();
 	buttonClearOutputWindow->setText("Clear");
-	buttonClearOutputWindow->setPosition(415, 240);
-	buttonClearOutputWindow->setSize(85,25);
+	buttonClearOutputWindow->setPosition(420, 285);
+	buttonClearOutputWindow->setSize(135,35);
+	buttonClearOutputWindow->setTextSize(20);
 	searchButton = tgui::Button::create();
-	searchButton->setSize(85,25);
+	searchButton->setSize(135,35);
 	searchButton->setText("Search");
-	searchButton->setPosition(415,205);	
+	searchButton->setPosition(420,235);	
+	searchButton->setTextSize(20);
 	outputWindow = tgui::ChatBox::create();
 	outputWindow->setSize(350, 240);
 	outputWindow->setTextSize(18);
 	outputWindow->setPosition(25, 110);
 	outputWindow->setLinesStartFromTop();
-
+	topEditbox->setRenderer(m_theme.getRenderer("EditBox"));
+	bottomEditbox->setRenderer(m_theme.getRenderer("EditBox"));
+//	topLabel->setRenderer(m_theme.getRenderer("Label"));
+//	bottomLabel->setRenderer(m_theme.getRenderer("Label"));
+	topButtonFileDialog->setRenderer(m_theme.getRenderer("Button"));
+	bottomButtonFileDialog->setRenderer(m_theme.getRenderer("Button"));
+	buttonClearOutputWindow->setRenderer(m_theme.getRenderer("Button"));
+	searchButton->setRenderer(m_theme.getRenderer("Button"));
+	outputWindow->setRenderer(m_theme.getRenderer("ChatBox"));
 }
 
 

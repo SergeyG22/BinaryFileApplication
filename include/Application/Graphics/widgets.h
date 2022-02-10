@@ -1,10 +1,9 @@
 #pragma once
 #include "../../tgui-src/include/TGUI/TGUI.hpp"
 #include "../../tgui-src/include/TGUI/Widgets/FileDialog.hpp"
-#include <iostream>
 
 class Widgets {
-
+	tgui::Theme m_theme{ "../themes/Black.txt" };
 public:
 	tgui::Label::Ptr topLabel;
 	tgui::Label::Ptr bottomLabel;

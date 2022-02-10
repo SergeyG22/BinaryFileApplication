@@ -12,6 +12,8 @@ Window::Window(){
     m_graphicalUI.add(m_widgets.searchButton);
     m_graphicalUI.add(m_widgets.buttonClearOutputWindow);
 
+
+
     m_widgets.topButtonFileDialog->onPress([&] {
         m_graphicalUI.add(m_widgets.openTopFileDialog());
         });

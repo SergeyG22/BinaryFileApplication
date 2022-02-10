@@ -1,11 +1,11 @@
 #include "../../include/Application/Facades/user_interface.h"
 
 UserInterface::UserInterface() {
-	display = std::make_unique<Window>();
-	backend = std::make_unique<BackendOperations>();
-	display->setBackendPointer(std::move(backend));
+	m_display = std::make_unique<Window>();
+	m_backend = std::make_unique<BackendOperations>();
+	m_display->setBackendPointer(std::move(m_backend));
 }
 
 void UserInterface::execution() {
-	display->execution();
+	m_display->execution();
 }

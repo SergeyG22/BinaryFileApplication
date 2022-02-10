@@ -66,7 +66,7 @@ void BackendOperations::binaryFindOperation(Widgets& widgets) {
     if (!lines.empty()) {
         widgets.outputWindow->removeAllLines();
         for (const auto it : lines) {
-            widgets.outputWindow->addLine(it);
+            widgets.outputWindow->addLine(it, tgui::Color::White);
         }
     }
 
