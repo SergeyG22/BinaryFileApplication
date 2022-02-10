@@ -1,47 +1,51 @@
 #include "../../include/Application/Graphics/window.h"
 
 Window::Window(){    
-	window.setFramerateLimit(60);
-    graphical_ui.add(widgets.label_1);
-    graphical_ui.add(widgets.label_2); 
-    graphical_ui.add(widgets.editbox_1);
-    graphical_ui.add(widgets.editbox_2);
-    graphical_ui.add(widgets.button_file_dialog_1);
-    graphical_ui.add(widgets.button_file_dialog_2);
-    graphical_ui.add(widgets.list_box);
-    graphical_ui.add(widgets.find_button);
+	m_window.setFramerateLimit(60);
+    m_graphicalUI.add(m_widgets.topLabel);
+    m_graphicalUI.add(m_widgets.bottomLabel); 
+    m_graphicalUI.add(m_widgets.topEditbox);
+    m_graphicalUI.add(m_widgets.bottomEditbox);
+    m_graphicalUI.add(m_widgets.topButtonFileDialog);
+    m_graphicalUI.add(m_widgets.bottomButtonFileDialog);
+    m_graphicalUI.add(m_widgets.outputWindow);
+    m_graphicalUI.add(m_widgets.searchButton);
+    m_graphicalUI.add(m_widgets.buttonClearOutputWindow);
 
-    widgets.button_file_dialog_1->onPress([&] {
-        graphical_ui.add(widgets.openFileDialogA());
+    m_widgets.topButtonFileDialog->onPress([&] {
+        m_graphicalUI.add(m_widgets.openTopFileDialog());
         });
 
-    widgets.button_file_dialog_2->onPress([&] {
-        graphical_ui.add(widgets.openFileDialogB());
+    m_widgets.bottomButtonFileDialog->onPress([&] {
+        m_graphicalUI.add(m_widgets.openBottomFileDialog());
         });
 
-    widgets.find_button->onPress([&] {
-        backend_ptr->binaryFindOperation(widgets);
+    m_widgets.searchButton->onPress([&] {
+        m_backendPtr->binaryFindOperation(m_widgets);
+        });
+
+    m_widgets.buttonClearOutputWindow->onPress([&] {
+        m_widgets.outputWindow->removeAllLines();
         });
 }
 
-void Window::execution() {
-       
-    while (window.isOpen()) {
+void Window::execution() {     
+    while (m_window.isOpen()) {
         sf::Event event;
-        while (window.pollEvent(event)) {
+        while (m_window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
-                window.close();
+                m_window.close();
 
-            graphical_ui.handleEvent(event);
+            m_graphicalUI.handleEvent(event);
         }
 
-        window.clear();
-        graphical_ui.draw();
-        window.display();
+        m_window.clear(sf::Color{ 120,231,12,150 });
+        m_graphicalUI.draw();
+        m_window.display();
     }
 }
 
 void Window::setBackendPointer(std::unique_ptr<BackendOperations>ptr) {
-    backend_ptr = std::move(ptr);
+    m_backendPtr = std::move(ptr);
 }
 

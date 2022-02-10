@@ -3,10 +3,12 @@
 #include <boost/algorithm/cxx14/equal.hpp>
 #include <boost/filesystem.hpp>
 #include "../Graphics/widgets.h"
-#include <iostream>
+
 
 class BackendOperations {
 
 public:						 
 	void binaryFindOperation(Widgets&);
+	BackendOperations() = default;
+	~BackendOperations() = default;
 };

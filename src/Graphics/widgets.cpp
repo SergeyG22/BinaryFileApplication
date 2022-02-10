@@ -2,64 +2,70 @@
 
 
 Widgets::Widgets() {
-    label_1 = tgui::Label::create();
-	label_1->setText("Working directory:");
-	label_1->setPosition(0,25);
-	label_2 = tgui::Label::create();
-	label_2->setText("Working directory:");
-	label_2->setPosition(0,60);
-	editbox_1 = tgui::EditBox::create();
-	editbox_1->setSize(450,20);
-	editbox_1->setPosition(125,25);
-	editbox_2 = tgui::EditBox::create();
-	editbox_2->setSize(450,20);
-	editbox_2->setPosition(125,60);
-	button_file_dialog_1 = tgui::Button::create();
-	button_file_dialog_1->setText("Browse");
-	button_file_dialog_1->setPosition(415,115);
-	button_file_dialog_1->setSize(85,25);
-	button_file_dialog_2 = tgui::Button::create();
-	button_file_dialog_2->setText("Browse");
-	button_file_dialog_2->setPosition(415,150);
-	button_file_dialog_2->setSize(85,25);
-	find_button = tgui::Button::create();
-	find_button->setSize(85,25);
-	find_button->setText("Search");
-	find_button->setPosition(415,185);
-	list_box = tgui::ListBox::create();
-	list_box->setSize(250,240);
-	list_box->setItemHeight(24);
-	list_box->setPosition(125,110);	
-	file_dialog_1 = tgui::FileDialog::create("Open file", "Open");
+    topLabel = tgui::Label::create();
+	topLabel->setText("Working directory:");
+	topLabel->setPosition(400,25);
+	bottomLabel = tgui::Label::create();
+	bottomLabel->setText("Working directory:");
+	bottomLabel->setPosition(400,60);
+	topEditbox = tgui::EditBox::create();
+	topEditbox->setSize(350,20);
+	topEditbox->setPosition(25,25);
+	bottomEditbox = tgui::EditBox::create();
+	bottomEditbox->setSize(350,20);
+	bottomEditbox->setPosition(25,60);
+	topButtonFileDialog = tgui::Button::create();
+	topButtonFileDialog->setText("Browse");
+	topButtonFileDialog->setPosition(415,135);
+	topButtonFileDialog->setSize(85,25);
+	bottomButtonFileDialog = tgui::Button::create();
+	bottomButtonFileDialog->setText("Browse");
+	bottomButtonFileDialog->setPosition(415,170);
+	bottomButtonFileDialog->setSize(85,25);
+	buttonClearOutputWindow = tgui::Button::create();
+	buttonClearOutputWindow->setText("Clear");
+	buttonClearOutputWindow->setPosition(415, 240);
+	buttonClearOutputWindow->setSize(85,25);
+	searchButton = tgui::Button::create();
+	searchButton->setSize(85,25);
+	searchButton->setText("Search");
+	searchButton->setPosition(415,205);	
+	outputWindow = tgui::ChatBox::create();
+	outputWindow->setSize(350, 240);
+	outputWindow->setTextSize(18);
+	outputWindow->setPosition(25, 110);
+	outputWindow->setLinesStartFromTop();
+
 }
 
-tgui::FileDialog::Ptr Widgets::openFileDialogA() {
-	file_dialog_1 = tgui::FileDialog::create("Open file", "Open");
-	file_dialog_1->setSelectingDirectory(true);
+
+tgui::FileDialog::Ptr Widgets::openTopFileDialog() {
+	topFileDialog = tgui::FileDialog::create("Open file", "Open");
+	topFileDialog->setSelectingDirectory(true);
 	
-	file_dialog_1->onClose([&] {
-		tgui::String path = file_dialog_1->getPath().asString();
-		if (!file_dialog_1->getSelectedPaths().empty()) {
-			editbox_1->setText(path);
+	topFileDialog->onClose([&] {
+		tgui::String path = topFileDialog->getPath().asString();
+		if (!topFileDialog->getSelectedPaths().empty()) {
+			topEditbox->setText(path);
 		}
 		});
 
-	return file_dialog_1;
+	return topFileDialog;
 }
 
 
-tgui::FileDialog::Ptr Widgets::openFileDialogB() {
-	file_dialog_2 = tgui::FileDialog::create("Open file", "Open");
-	file_dialog_2->setSelectingDirectory(true);
+tgui::FileDialog::Ptr Widgets::openBottomFileDialog() {
+	bottomFileDialog = tgui::FileDialog::create("Open file", "Open");
+	bottomFileDialog->setSelectingDirectory(true);
 
-	file_dialog_2->onClose([&] {
-		tgui::String path = file_dialog_2->getPath().asString();
-		if (!file_dialog_2->getSelectedPaths().empty()) {
-			editbox_2->setText(path);
+	bottomFileDialog->onClose([&] {
+		tgui::String path = bottomFileDialog->getPath().asString();
+		if (!bottomFileDialog->getSelectedPaths().empty()) {
+			bottomEditbox->setText(path);
 		}
 		});
 
-	return file_dialog_2;
+	return bottomFileDialog;
 }
 
 

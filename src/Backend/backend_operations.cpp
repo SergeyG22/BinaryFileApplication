@@ -3,11 +3,13 @@
 								
 void BackendOperations::binaryFindOperation(Widgets& widgets) {
 
-    std::string folder_a = widgets.editbox_1->getText().toStdString();
-    std::string folder_b = widgets.editbox_2->getText().toStdString();
+    std::string folder_a = widgets.topEditbox->getText().toStdString();
+    std::string folder_b = widgets.bottomEditbox->getText().toStdString();
 
-      boost::iostreams::mapped_file_source file_a;
-      boost::iostreams::mapped_file_source file_b;
+    boost::iostreams::mapped_file_source file_a;
+    boost::iostreams::mapped_file_source file_b;
+
+    std::vector<tgui::String>lines;
 
     if (boost::filesystem::exists(boost::filesystem::path(folder_a)) &&
         boost::filesystem::exists(boost::filesystem::path(folder_b))) {
@@ -49,27 +51,24 @@ void BackendOperations::binaryFindOperation(Widgets& widgets) {
                           if (file_a.size() == file_b.size() && boost::algorithm::equal(file_a.data(), file_a.data() + file_a.size(), file_b.data(),
                               file_b.data() + file_b.size())) {
                               
-                              std::cout << first_it.path().filename() << " === " << second_it.path().filename() <<'\n';
-                              tgui::String item = first_it.path().filename().string() + " === " + second_it.path().filename().string();
-                              widgets.list_box->addItem(item);
+                              tgui::String item = first_it.path().filename().string() + " [EQUIALENT] " + second_it.path().filename().string();                            
+                              lines.emplace_back(item);
                           }
-                           else {
-                              std::cout << "no equialent!\n";
-                              
-                         }
-
-
                    }
-                 }
-
-
-                                    
+                 }                                   
            }
 
         }
 
     }
 
+
+    if (!lines.empty()) {
+        widgets.outputWindow->removeAllLines();
+        for (const auto it : lines) {
+            widgets.outputWindow->addLine(it);
+        }
+    }
 
 
 }
