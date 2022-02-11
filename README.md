@@ -64,4 +64,6 @@ Run the program and select the example folder in the root of the source director
 
 ### Preview
 
+![hippo](https://github.com/SergeyG22/BinaryFileApplication/blob/master/docs/images/animation.gif)
+
 
