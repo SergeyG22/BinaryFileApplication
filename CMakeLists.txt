@@ -25,10 +25,10 @@ src/Facades/user_interface.cpp
 	include/Application/Facades/user_interface.h
 )
 
-find_package(sfml REQUIRED)
+find_package(SFML REQUIRED)
 if(SFML_FOUND)
 	target_include_directories(${PROJECT_NAME} PRIVATE ${SFML_INCLUDE_DIR})
-        target_link_libraries(${PROJECT_NAME} PRIVATE sfml-main sfml-audio sfml-graphics sfml-system sfml-window sfml-network)
+        target_link_libraries(${PROJECT_NAME} PRIVATE sfml-audio sfml-graphics sfml-system sfml-window sfml-network)
 endif()
 
 
