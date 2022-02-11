@@ -27,7 +27,8 @@ jobs:
             echo "conan install ../scripts " >> ~/.profile
             echo "source ~/.profile" >> ~/.bashrc
             bash
-            cd cmake           
+            cd cmake
+            conan install ../scripts
     - name: Build
       # Build your program with the given configuration    
       run: |
