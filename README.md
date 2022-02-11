@@ -4,7 +4,11 @@ A program for comparing binary files. Main features:
 
 * lightweight GUI
 * cross-platform
-* ease of use
+* ease of use <br><br>
+
+
+[![CI - Windows](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/cmake.yml/badge.svg)](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/cmake.yml)
+
 
 ### Installing dependencies
 
