@@ -24,8 +24,8 @@ jobs:
       shell: bash
       run: |
             pip install conan
+            ~/.bashrc
             cd cmake
-            conan
             conan install ../scripts            
     - name: Build
       # Build your program with the given configuration    
