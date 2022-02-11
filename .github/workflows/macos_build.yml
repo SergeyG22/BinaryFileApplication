@@ -19,12 +19,12 @@ jobs:
     - name: Install python  
       shell: bash
       run: |
-            sudo apt-get install mosquitto cmake python python-pip && python -m pip install conan
-            sudo pip install conan
+           apt-get install mosquitto cmake python python-pip && python -m pip install conan
     - name: Install dependencies with conan
       shell: bash
       run: |
             cd cmake
+            python -m site
             conan install ../scripts
     - name: Build
       # Build your program with the given configuration    
