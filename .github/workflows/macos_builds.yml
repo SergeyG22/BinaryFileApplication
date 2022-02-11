@@ -25,7 +25,7 @@ jobs:
       run: |
             pip install conan
             cd cmake
-            echo $PATH
+            find /usr/local -name conan
             conan install ../scripts
     - name: Build
       # Build your program with the given configuration    
