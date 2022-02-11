@@ -30,7 +30,6 @@ jobs:
     - name: Build
       # Build your program with the given configuration    
       run: |
-           cd ..
            mkdir build
            cd build
            cmake ..
