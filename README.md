@@ -6,7 +6,7 @@ A program for comparing binary files. Main features:
 * cross-platform
 * ease of use
 
-### Build from source
+### Installing dependencies
 
 Python interpreter and the Conan package manager must be installed.
 CMake 3.13 or higher should also be installed.
@@ -16,3 +16,52 @@ To install Conan, enter the following command:
 ```
 pip3 install conan 
 ```
+
+To check that the Conan is installed correctly enter in cmd:
+
+```
+conan --version
+```
+
+Download the sources and install the required dependencies:
+
+```
+git clone https://github.com/SergeyG22/BinaryFileApplication.git
+cd BinaryFileApplication
+cd cmake
+conan install ../scripts
+```
+
+To switch between Debug and Release builds:
+
+```
+cd cmake
+conan install -s build_type=Debug ../scripts 
+```
+```
+cd cmake
+conan install -s build_type=Release ../scripts 
+```
+
+### Building from source
+
+```
+cd BinaryFileApplication
+mkdir build
+cmake ..
+```
+
+### Control panel
+
+[Browse] - choose the path to folder one<br>
+[Browse] - choose the path to folder two<br>
+[Search] - find duplicate binary files<br>
+[Clear] - clear the output window <br>
+
+### Examples 
+
+Run the program and select the example folder in the root of the source directory. Specify the path to binary_a and binary_b folders. Click [Search]. A list of duplicates will be displayed.
+
+### Preview
+
+
