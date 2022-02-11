@@ -24,7 +24,6 @@ jobs:
       shell: bash
       run: |
             pip install conan
-            conan install .. 
             cd cmake
             conan install ../scripts
             
