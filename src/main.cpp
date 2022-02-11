@@ -2,6 +2,6 @@
 
 
 int main() {
-	auto user_control = std::make_unique<UserInterface>();
-	user_control->execution();
+	auto userControl = std::make_unique<UserInterface>();
+	userControl->execution();
 };
