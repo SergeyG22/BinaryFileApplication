@@ -24,7 +24,8 @@ jobs:
       shell: bash
       run: |
             pip install conan
-            python -V
+            python --version
+            python3 --version
             cd cmake
             conan install ../scripts
     - name: Build
