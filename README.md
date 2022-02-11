@@ -7,7 +7,7 @@ A program for comparing binary files. Main features:
 * ease of use <br><br>
 
 
-[![CI - Windows](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/cmake.yml/badge.svg)](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/cmake.yml)<br>
+[![CI - Windows](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/windows_builds.yml/badge.svg)](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/windows_builds.yml)<br>
 [![CI - linux](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/linux_builds.yml/badge.svg)](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/linux_builds.yml)
 
 
