@@ -8,7 +8,9 @@ A program for comparing binary files. Main features:
 
 
 [![CI - Windows](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/windows_builds.yml/badge.svg)](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/windows_builds.yml)<br>
-[![CI - linux](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/linux_builds.yml/badge.svg)](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/linux_builds.yml)
+[![CI - linux](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/linux_builds.yml/badge.svg)](https://github.com/SergeyG22/BinaryFileApplication/actions/workflows/linux_builds.yml)<br>
+Not tested under MacOS (no distribution).
+
 
 
 ### Installing dependencies
