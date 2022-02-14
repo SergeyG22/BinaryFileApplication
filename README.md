@@ -55,6 +55,7 @@ conan install -s build_type=Release ../scripts
 ```
 cd BinaryFileApplication
 mkdir build
+cd build
 cmake ..
 ```
 
